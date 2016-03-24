@@ -1,0 +1,27 @@
+; Don't edit manually!
+; {{ ansible_managed }}
+
+[DEFAULT]
+Driver=FreeTDS
+
+{% if odbc_connections|length != 0 %}
+
+; Connections defined per variable
+{% for entry in odbc_connections %}
+[{{ entry.name }}]
+Driver={{ entry.driver | default('FreeTDS')}}
+Description={{ entry.description | default('') }}
+Trace={{ entry.trace | default('No') }}
+Server={{ entry.server | default('') }}
+Port={{ entry.port | default('') }}
+TDS Version={{ entry.tds_version | default('8.0') }}
+Database={{ entry.database | default('') }}
+{% endfor %}
+{% endif %}
+
+{% if odbc_file_snippets|length != 0 %}
+; odbc-connection file snippets
+{% for snippet in odbc_file_snippets %}
+{% include snippet %}
+{% endfor %}
+{% endif %}

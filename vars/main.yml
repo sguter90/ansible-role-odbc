@@ -1,0 +1,5 @@
+# roles/odbc/vars/main.yml
+---
+
+odbc_file: /etc/odbc.ini
+

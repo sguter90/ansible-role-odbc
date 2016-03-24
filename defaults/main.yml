@@ -1,0 +1,16 @@
+# roles/odbc/defaults/main.yml
+---
+
+# Define ODBC-packages
+odbc_packages:
+    - unixODBC
+    - unixODBC-devel
+    - freetds
+    - freetds-devel
+    - mysql-connector-odbc
+
+# Custom odbc entries to be added
+odbc_connections: []
+
+# Custom odbc file snippets to be added
+odbc_file_snippets: []

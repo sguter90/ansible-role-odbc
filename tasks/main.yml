@@ -1,0 +1,19 @@
+# roles/odbc/tasks/main.yml
+---
+
+- name: Install yum packages required for ODBC
+  yum: 
+    name: "{{ item }}"
+    state: installed
+  with_items: odbc_packages
+  tags: packages
+
+
+- name: Write custom ODBC configuration file
+  template:
+    src: etc_odbc.j2
+    dest: "{{ odbc_file }}"
+    owner: root
+    group: root
+    mode: 0644
+  tags: configuration
