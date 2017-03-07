@@ -16,6 +16,9 @@ Server={{ entry.server | default('') }}
 Port={{ entry.port | default('') }}
 TDS Version={{ entry.tds_version | default('8.0') }}
 Database={{ entry.database | default('') }}
+{% if entry.characterset|length != 0 %}
+Characterset={{ entry.characterset }}
+{% endif %}
 {% endfor %}
 {% endif %}
 
