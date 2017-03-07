@@ -37,6 +37,7 @@ Role Variables
         port: 1433
         tds_version: "8.0"
         database: MY_DATABASE_2
+        characterset: UTF-8
 
     # Custom odbc file snippets to be added
     odbc_file_snippets:
